@@ -1,0 +1,42 @@
+{
+  "name": "Inshare",
+  "description": "share your link for everyone to admire",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "permissions": ["scripting"],
+  "host_permissions": ["<all_urls>"],
+
+  "icons": {
+    "16": "/images/Atlas16.png",
+    "32": "/images/Atlas32.png",
+    "128": "/images/Atlas128.png"
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": ["/images/Space.png"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "inshare@example.com",
+      "strict_min_version": "109.0"
+    }
+  }
+}

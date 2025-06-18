@@ -1,0 +1,25 @@
+body {
+  height: 415px;
+  width: 325px;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.mainpage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+button {
+  height: 30px;
+  margin: 10px;
+  justify-content: center;
+}
+
+#logo {
+  justify-content: center;
+  border-radius: 35px;
+  margin: 10px;
+}

@@ -1,11 +1,10 @@
-/*make pop up and extract all the links*/
+/*###################### make pop up and extract all the links ####################################*/
 
 //############## popup menu for droping ###############
 const dropbody = document.createElement("div");
 dropbody.contains;
 dropbody.style.position = "fixed";
-dropbody.style.top = "75px";
-dropbody.style.left = "90%";
+
 dropbody.style.backgroundColor = "black";
 dropbody.style.height = "125px";
 dropbody.style.width = "125px";
@@ -24,10 +23,13 @@ cloudopng.style.borderRadius = "12px";
 
 dropbody.appendChild(cloudopng);
 document.body.appendChild(dropbody);
+//############## variable ####################3
 
 let elememt = null;
 let link = null;
 let image = null;
+
+const WinWidth = window.screen.width;
 
 function LinknImg(elememt) {
   // #### parent =  <a> and element = <img>
@@ -66,7 +68,20 @@ function LinknImg(elememt) {
   }
 }
 
+function MousePos(xcor) {
+  let requireWid = 4 * (WinWidth / 5);
+  if (xcor > requireWid) {
+    return xcor - 175;
+  } else {
+    return xcor + 50;
+  }
+}
+
 document.addEventListener("dragstart", (e) => {
+  let leftpos = MousePos(e.clientX);
+  console.log(leftpos);
+  dropbody.style.top = `${e.clientY - 50}px`;
+  dropbody.style.left = `${leftpos}px`;
   dropbody.style.display = "flex";
   elememt = e.target;
   console.log("##############################");
@@ -90,7 +105,7 @@ document.addEventListener("drop", (e) => {
     image: data.image,
   });
   console.log(
-    "###########################################Message sent to your prfile ##############################"
+    "########################################### Message sent to your prfile ##############################"
   );
 });
 
